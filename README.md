@@ -1,5 +1,3 @@
-# uaaInfoDisplay
-
 ## Features
 
 This tool could only be used for PKS(Pivotal Container Service)
