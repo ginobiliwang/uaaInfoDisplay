@@ -1,6 +1,7 @@
 ## Features
 
 This tool could only be used for PKS(Pivotal Container Service)
+https://docs.pivotal.io/runtimes/pks/1-2/index.html
 
 * It will retrive user information from UAA server.
 * It will retrive clusterrole binding information from k8s.
@@ -69,4 +70,4 @@ The input was: 2
 
 ## License
 
-The BSD 3-Clause License - see [`LICENSE`](LICENSE) for more details
+GNU General Public License
