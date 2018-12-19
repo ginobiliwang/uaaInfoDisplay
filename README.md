@@ -22,6 +22,15 @@ go get github.com/modood/table
 go get github.com/bitly/go-simplejson
 go get github.com/ginobiliwang/uaaInfoDisplay
 ```
+You will need to make sure that there is an operator ahead of time. If not, please create a new operator.
+https://docs.pivotal.io/runtimes/pks/1-2/manage-users.html
+```bash
+uaac target https://PKS-API:8443 --skip-ssl-validation
+uaac token client get admin -s ADMIN-CLIENT-SECRET
+uaac user add alana --emails alana@example.com -p password
+uaac member add pks.clusters.admin alana
+uaac member add pks.clusters.manage alana
+```
 
 ## Usage
 
