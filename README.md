@@ -3,6 +3,7 @@
 This tool could only be used for PKS(Pivotal Container Service)
 https://docs.pivotal.io/runtimes/pks/1-2/index.html
 
+* This code piece is running on go language 1.11.x 
 * It will retrive user information from UAA server.
 * It will retrive clusterrole binding information from k8s.
 * It will retrive role binding information from k8s.
