@@ -266,7 +266,7 @@ func parseBinding (bindingKind string) (map[string]Binding, error) {
 
 	if (0 == len(clusterRoleBindingArray)) {
 		//fmt.Printf("Fatal: no clusterrole binding available and exit\n")
-		return nil, errors.New("no binding to show!")
+		return nil, errors.New("item_empty")
 	}
 
 	for i, _ := range clusterRoleBindingArray {
@@ -324,7 +324,7 @@ func printSlice(x []UserInfo){
 
 func drawUserInfoTable (userInfoM map[string]UserInfo) (error) {
 	if (0 == len(userInfoM)) {
-		return errors.New("do not draw userTable\n")
+		return errors.New("table_empty")
 	}
 
 	var s []UserInfo = make([]UserInfo, 0)
@@ -339,7 +339,7 @@ func drawUserInfoTable (userInfoM map[string]UserInfo) (error) {
 
 func drawBindingTable (BindingM map[string]Binding) (error) {
 	if (0 == len(BindingM)) {
-		return errors.New("do not draw bindingTable\n")
+		return errors.New("table_empty")
 	}
 	
 	var s []Binding = make([]Binding, 0)
@@ -377,28 +377,48 @@ func main() {
 
 	roleBindingMap, err := parseBinding("roleBinding")
 	if (err != nil) {
-		fmt.Printf("error happen when parsing roleBinding\n")
+		if (0 == strings.Compare("item_empty",err.Error())) {
+			fmt.Printf("roleBinding items are empty\n")
+		} else {
+			fmt.Printf("error happen when parsing roleBinding\n")
+		}
 	}
 
 	clusterRoleBindingMap, err := parseBinding("clusterRoleBinding")
 	if (err != nil) {
-		fmt.Printf("error happen when parsing clusterRoleBinding\n")
+		if (0 == strings.Compare("item_empty",err.Error())) {
+			fmt.Printf("clusterRoleBinding items are empty\n")
+		} else {
+			fmt.Printf("error happen when parsing clusterRoleBinding\n")
+		}
 	}
 
 	fmt.Printf("\n\n")
 	err = drawUserInfoTable(userInfoMap)
 	if (err != nil) {
-		fmt.Printf("error happen when draw userInfo Table\n")
+		if (0 == strings.Compare("table_empty",err.Error())) {
+			fmt.Printf("user table are empty\n")
+		} else {
+			fmt.Printf("error happen when draw userInfo Table\n")
+		}
 	}
 
 	err = drawBindingTable(clusterRoleBindingMap)
 	if (err != nil) {
-		fmt.Printf("error happen when draw clsuterRoleBinding Table\n")
+		if (0 == strings.Compare("table_empty",err.Error())) {
+			fmt.Printf("clusterRoleBinding table are empty\n")
+		} else {
+			fmt.Printf("error happen when draw clusterRoleBinding Table\n")
+		}
 	}
 
 	err = drawBindingTable(roleBindingMap)
 	if (err != nil) {
-		fmt.Printf("error happen when draw roleBinding Table\n")
+		if (0 == strings.Compare("table_empty",err.Error())) {
+			fmt.Printf("roleBinding table are empty\n")
+		} else {
+			fmt.Printf("error happen when draw roleBinding Table\n")
+		}
 	}
 
 	/*
