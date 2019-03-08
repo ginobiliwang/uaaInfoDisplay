@@ -18,6 +18,14 @@ https://github.com/cloudfoundry/cf-uaac
 You will need to install accordingly pks and kubectl binary.
 https://network.pivotal.io/
 
+You will need to install python package yq.
+
+```bash
+sudo apt-get install python-setuptools python-dev build-essential 
+sudo easy_install pip
+sudo pip install yq
+```
+
 ```bash
 go get github.com/modood/table
 go get github.com/bitly/go-simplejson
